@@ -85,4 +85,4 @@ The brief is intentionally loose. We want to see how you think about both the *e
 
 ## Closing
 
-Reach out if anything is unclear, and feel free to push back on assumptions. Have fun with it - looking forward to seeing what you build.
+You are encouraged to reach out if anything is unclear, and feel free to push back on assumptions. Have fun with it - looking forward to seeing what you build.
