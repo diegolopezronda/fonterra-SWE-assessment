@@ -49,7 +49,7 @@ The four inputs the operators care about are:
 
 A fermentation window of roughly 12 hours is representative, but you should choose a duration that makes the dynamics legible for the user.
 
-
+Hint: there are a number of ODE solvers widely available that will solve the equations for you - please do not spend the time attempting to write your own. An example of one is `odeint` / `solve_ivp` from `scipy`, but feel free to do more research and pick one of the other options. 
 
 ## What we're asking for
 
@@ -80,7 +80,7 @@ The brief is intentionally loose. We want to see how you think about both the *e
 
 1. *User experience & product judgment* - Does the tool actually help a process expert do something they couldn't easily do before? Has the interaction been designed, or have parameters just been exposed? Is the experience cohesive?
 2. *System design* - Is there a sensible separation between the model/solver, application logic, and the interface? Do the architectural choices match the experience you're trying to deliver? Do your tradeoffs hold up when questioned?
-3. *Technical execution* - Is the ODE solution numerically sound? Is the code readable and reasonably structured? Does the app run cleanly? Is validation and error-handling placed where it belongs?
+3. *Technical execution* - Is the code readable and reasonably structured? Does the app run cleanly? Is validation and error-handling placed where it belongs?
 4. *Communication* - Does the README explain who the tool is for, what design choices you made, what you deliberately left out, and how to run it? Could a teammate pick this up cold?
 
 ## Closing
