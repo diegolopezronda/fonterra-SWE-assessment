@@ -73,7 +73,7 @@ The brief is intentionally loose. We want to see how you think about both the *e
 - *Scope*: aim for roughly 3-4 hours of focused work. Use this to calibrate polish.
 - *Stack*: your choice. Pick what lets you move quickly and lets the experience land.
 - *AI tools*: Copilot, Claude, Cursor, ChatGPT, and similar are allowed and expected in order to provide fairness across candidates. We suggest using them for both the development work and to help you understand the context faster.
-- *Submission*: push your work to a *private GitHub repository* and share it with the interviewer - oleg-barbin-fonterra (And Priyank?) at least one day before the second interview. A short gif, video, or sequence of screenshots embedded in the README showing the tool in use is greatly appreciated.
+- *Submission*: push your work to a *private GitHub repository* and share it with the interviewers - `oleg-barbin-fonterra` and `priyankj123` at least one day before the second interview. A short gif, video, or sequence of screenshots embedded in the README showing the tool in use is greatly appreciated.
 
 ## Evaluation Criteria
 
