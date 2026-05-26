@@ -29,6 +29,7 @@ The fermentation is described by two coupled ODEs. Let:
 Then:
 
 dX/dt = mu * X * sigma(pH)
+
 dp/dt = (10^q) * X * sigma(pH)
 
 where sigma(pH) is a logistic inhibition term that switches the culture off as the medium acidifies:
