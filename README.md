@@ -44,7 +44,7 @@ The four inputs the operators care about are:
 | mu | Bacterial growth rate $[1/\mathrm{hr}]$ | 0.1 – 2 | 1 |
 | q  | log₁₀ of lactic-acid production rate per bacterium $[\log_{10}(\mathrm{mol/hr})]$ | -20 to -10 | -15 |
 | X0 | Initial bacterial concentration $[1/L]$ | $10^4$ – $10^8$ | $10^6$ |
-| p0 | Initial lactic acid concentration $[\mathrm{mol/L}]$ | $10^{-8}$ – $10^{-4}$ |
+| p0 | Initial lactic acid concentration $[\mathrm{mol/L}]$ | $10^{-8}$ – $10^{-4}$ | $10^{-6}$ |
 
 A fermentation window of roughly 12 hours is representative, but you should choose a duration that makes the dynamics legible for the user.
 
