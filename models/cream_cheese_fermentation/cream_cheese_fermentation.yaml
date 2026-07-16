@@ -1,0 +1,15 @@
+state_variables: ["X", "p"]
+
+intermediates:
+  pH: "-log10(Max(p, 1e-14))"
+  sigma: "1.0 / (1.0 + exp(-c2 * (pH - c1)))"
+
+equations:
+  X: "mu * X * sigma"
+  p: "(10**q) * X * sigma"
+
+parameters:
+  c1: 6.5
+  c2: 2.0
+  mu: 0.35
+  q: -4.0
