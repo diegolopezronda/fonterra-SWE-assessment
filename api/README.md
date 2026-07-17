@@ -30,7 +30,7 @@ The API is protected with Entra ID authentication, so you will need to create an
 Entra ID application and configure it to allow access to the API (see references).
 
 After creating the application, you will need to set the following environment
-variables in the `.env_var` file:
+variables in the `.env.local` file:
 
 ```bash
 TENANT_ID=<your-entra-id-tenant-id>
