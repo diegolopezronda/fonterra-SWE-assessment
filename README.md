@@ -26,7 +26,7 @@ This is the business process covered by this repository.
 Please run:
 
 ```bash
-python -m venv .venv
+python -m venv .venv --prompt "Fonterra SWE"
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
