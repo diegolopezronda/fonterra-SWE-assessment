@@ -73,6 +73,7 @@ mlflow models serve -m "models:/$MODEL_NAME/$VERSION_NUMBER" --port $PORT --env-
 example (Cream Cheese Fermentation model):
 
 ```bash
+cd mlflow # from the root of the repo
 mlflow models serve -m "models:/Cream_Cheese_Fermentation/latest" --port 8001 --env-manager local
 ```
 #### Consuming a model
@@ -101,3 +102,115 @@ curl -X POST http://127.0.0.1:8001/invocations \
        }
      }'
 ```
+
+### Milko
+
+##### Authentication
+
+##### Skip authentication
+on `.env.local`, set the following variable to skip authentication:
+
+```bash
+SKIP_AUTH=true
+```
+
+##### Microsoft Azure Entra ID authentication
+The API and the backend are protected with Entra ID authentication, so you will 
+need to create an Entra ID application and configure it to allow access to the 
+API (see references). Being a simple project, the applications expect two roles 
+to be created in the Entra ID application:
+
+* `analyst`: Basically can access Milk Quality Predictor assets.
+* `visitor`: Can see everything, but cannot access Milk Quality Predictor assets.
+
+You can create and configure the application in the Azure Portal at [Entra ID > App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). 
+
+>Profile edition and role management are federated to Microsoft Entra ID, so I 
+>didn't find them a priority to implement in the project. However, it could be 
+>done.
+
+## Apps
+
+### API
+The API is built with FastAPI, and it is the backend of the project. API is 
+located in the `api` folder.
+
+#### Requirements
+
+* Python 3.12.0
+
+#### Installation
+
+##### Python environment
+
+```bash
+cd api
+python3 -m venv .env --prompt "Milko API"
+source .env/bin/activate
+pip install -r requirements.txt
+```
+##### Microsoft Azure Entra ID authentication
+The API is protected with Entra ID authentication, so you will need to create an
+Entra ID application and configure it to allow access to the API (see references).
+
+After creating the application, you will need to set the following environment
+variables in the `.env_var` file:
+
+```bash
+TENANT_ID=<your-entra-id-tenant-id>
+APP_CLIENT_ID=<your-entra-id-client-id>
+```
+
+#### Execution
+
+```bash
+fastapi dev
+```
+Will be available at `http://localhost:8000`.
+> You can also access the API documentation at `http://localhost:8000/docs`
+
+### Frontend
+The frontend is built with React, and it is the user interface of the project. The frontend is located in the `frontend` folder.
+
+#### Requirements
+* Node.js >= 20.6.0
+
+#### Installation
+
+##### Next.js environment
+
+```bash
+cd frontend
+npm install
+```
+##### Microsoft Azure Entra ID authentication
+The frontend is protected with Entra ID authentication, so you will need to 
+create an Entra ID application and configure it to allow access to the frontend 
+(see references). After creating the application, you will need to set the following environment variables in the `.env.local` file:
+
+```bash
+AUTH_MICROSOFT_ENTRA_ID_ID=<your-entra-id-client-id>
+AUTH_MICROSOFT_ENTRA_ID_SECRET=<your-entra-id-client-secret>
+AUTH_MICROSOFT_ENTRA_ID_ISSUER=<your-entra-id-issuer>
+AUTH_SECRET=<your-secret>
+```
+
+You can generate a secret with the following command:
+
+```bash
+openssl rand -base64 64
+```
+
+##### Models
+Please use `CREAM_CHEESE_FERMENTATION_MODEL` environment variable in `.env.local` to set your model endpoint. For example:
+
+```bash
+CREAM_CHEESE_FERMENTATION_MODEL=/models/Cream_Cheese_Fermentation/latest
+```
+
+#### Execution
+
+```bash
+npm run dev
+```
+Will be available at `http://localhost:3000`.
