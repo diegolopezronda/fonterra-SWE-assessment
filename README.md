@@ -52,7 +52,8 @@ MLFlow is used to deploy the model and make it available for consumption.
 To enable it, please run:
 
 ```bash
-mlflow ui
+mkdir -p mlflow
+mlflow ui --backend-store-uri sqlite:///mlflow/mlflow.db --default-artifact-root ./mlflow/artifacts
 ```
 MLFlow will be available at [http://localhost:5000](http://localhost:5000) and 
 the `mflow` folder will be used to store the models and their metadata.
