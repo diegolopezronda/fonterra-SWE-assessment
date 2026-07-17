@@ -31,10 +31,11 @@ openssl rand -base64 64
 ```
 
 ##### Models
-Please use `CREAM_CHEESE_FERMENTATION_MODEL` environment variable in `.env.local` to set your model endpoint. For example:
+Integrate the Milko API in the following way:
 
 ```bash
-CREAM_CHEESE_FERMENTATION_MODEL=/models/Cream_Cheese_Fermentation/latest
+MILKO_API_URL=http://127.0.0.1:8000 #Your Milko API URL
+CREAM_CHEESE_FERMENTATION_MODEL=/models/Cream_Cheese_Fermentation/latest #Your MLFlow /models/<model name>/<version|latest>
 ```
 
 #### Execution
