@@ -12,6 +12,14 @@ The frontend is built with React, and it is the user interface of the project. T
 cd frontend # if you are in the repo root
 npm install
 ```
+
+##### Skip authentication
+on `.env.local`, set the following variable to skip authentication:
+
+```bash
+SKIP_AUTH=true
+```
+
 ##### Microsoft Azure Entra ID authentication
 The frontend is protected with Entra ID authentication, so you will need to 
 create an Entra ID application and configure it to allow access to the frontend 
