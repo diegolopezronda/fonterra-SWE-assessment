@@ -152,6 +152,18 @@ python3 -m venv .env --prompt "Milko API"
 source .env/bin/activate
 pip install -r requirements.txt
 ```
+
+##### Quick-start variables
+Create `.env.local` file on the `frontend` folder, with the following contents:
+
+```bash
+TENANT_ID=dummmy
+APP_CLIENT_ID=dummmy
+FRONTEND_SOCKET_URL=http://localhost:3000
+MLFLOW_SOCKET_URL=http://127.0.0.1
+SKIP_AUTH=true
+````
+
 ##### Microsoft Azure Entra ID authentication
 The API is protected with Entra ID authentication, so you will need to create an
 Entra ID application and configure it to allow access to the API (see references).
@@ -186,6 +198,20 @@ The frontend is built with React, and it is the user interface of the project. T
 cd frontend
 npm install
 ```
+
+##### Quick-start variables
+Create `.env.local` file on the `frontend` folder, with the following contents:
+
+```bash
+AUTH_MICROSOFT_ENTRA_ID_ID=dummy
+AUTH_MICROSOFT_ENTRA_ID_SECRET=dummy
+AUTH_MICROSOFT_ENTRA_ID_ISSUER=dummy
+AUTH_SECRET=dummy
+MILKO_API_URL=http://127.0.0.1:8001
+CREAM_CHEESE_FERMENTATION_MODEL=/models/Cream_Cheese_Fermentation/latest
+SKIP_AUTH=true
+````
+
 ##### Microsoft Azure Entra ID authentication
 The frontend is protected with Entra ID authentication, so you will need to 
 create an Entra ID application and configure it to allow access to the frontend 
