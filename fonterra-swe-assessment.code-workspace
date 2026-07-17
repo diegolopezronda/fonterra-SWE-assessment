@@ -1,10 +1,10 @@
 {
   "folders": [
-    { "path": "api" },
-    { "path": "frontend" },
+    { "path": "." },
     { "path": "bpmn" },
     { "path": "models" },
-    { "path": "." },
+    { "path": "api" },
+    { "path": "frontend" },
   ],
   "settings": {},
 }
