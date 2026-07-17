@@ -1,28 +1,37 @@
-# Milko API
+### API
+The API is built with FastAPI, and it is the backend of the project. API is 
+located in the `api` folder.
 
-This is a simple [FastAPI](https://fastapi.tiangolo.com/) API for Milko, a 
-fictional dairy company.
+#### Requirements
 
-The endpoints of this API come from the challenges from courses, so they don't 
-make more sense. Also, some of the endpoints come with pseudo-databases to 
-simulate the behavior of a real API. Challenges are somewhat basic so I try 
-to embrace best practices and make the code more readable and maintainable.
+* Python 3.12.0
 
-## Dependencies
- 
- * [Python](https://www.python.org/downloads/) 3.10 or higher
+#### Installation
 
-## Environment setup
+##### Python environment
 
-```
+```bash
+cd api #if your are in the repo root
 python3 -m venv .env --prompt "Milko API"
 source .env/bin/activate
 pip install -r requirements.txt
 ```
+##### Microsoft Azure Entra ID authentication
+The API is protected with Entra ID authentication, so you will need to create an
+Entra ID application and configure it to allow access to the API (see references).
 
-## Running the API
+After creating the application, you will need to set the following environment
+variables in the `.env_var` file:
 
-* In development mode `fastapi dev`
-* In production mode `fastapi run`
+```bash
+TENANT_ID=<your-entra-id-tenant-id>
+APP_CLIENT_ID=<your-entra-id-client-id>
+```
 
-In both cases, the API will be available at `http://localhost:8000`.
+#### Execution
+
+```bash
+fastapi dev
+```
+Will be available at `http://localhost:8000`.
+> You can also access the API documentation at `http://localhost:8000/docs`
