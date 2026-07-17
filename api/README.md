@@ -12,10 +12,19 @@ located in the `api` folder.
 
 ```bash
 cd api #if your are in the repo root
+deactivate # if you are in another python venv
 python3 -m venv .env --prompt "Milko API"
 source .env/bin/activate
 pip install -r requirements.txt
 ```
+
+##### Skip authentication
+on `.env.local`, set the following variable to skip authentication:
+
+```bash
+SKIP_AUTH=true
+```
+
 ##### Microsoft Azure Entra ID authentication
 The API is protected with Entra ID authentication, so you will need to create an
 Entra ID application and configure it to allow access to the API (see references).
