@@ -8,6 +8,10 @@ The code can be extended to any other ODE model though.
 Each folder has their own README.md file with more information about its purpose 
 and contents.
 
+## Watch the tutorial
+
+[![Watch the video](https://img.youtube.com/vi/wemZK0fFXjc/maxresdefault.jpg)](https://www.youtube.com/watch?v=wemZK0fFXjc)
+
 ## Business process 
 This is the business process covered by this repository.
 
