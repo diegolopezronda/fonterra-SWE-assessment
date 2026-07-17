@@ -18,6 +18,8 @@ This is the business process covered by this repository.
 ## Requirements 
 
 * [python](https://www.python.org/downloads/) >= 3.12
+* Node.js 26.4.0
+* NPM 11.17.0
 
 ## Installation
 
