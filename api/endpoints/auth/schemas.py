@@ -6,10 +6,10 @@ from fastapi import Request
 
 
 class Settings(BaseSettings):
-    TENANT_ID: str
-    APP_CLIENT_ID: str
-    FRONTEND_SOCKET_URL: str
-    MLFLOW_SOCKET_URL: str
+    TENANT_ID: str = "dummy"
+    APP_CLIENT_ID: str = "dummy"
+    FRONTEND_SOCKET_URL: str = "http://localhost:3000"
+    MLFLOW_SOCKET_URL: str = "http://localhost:5000"
     SKIP_AUTH: str = "false"
 
     class Config:

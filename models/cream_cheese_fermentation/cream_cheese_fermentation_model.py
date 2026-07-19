@@ -6,11 +6,11 @@ from mlflow.models import set_model
 
 
 class CreamCheeseFermentationModel(mlflow.pyfunc.PythonModel):
-    '''
-        This model allows to predict the behaviour of bacteria during the process of Cream Cheese Fermentation.
-    '''
+    """
+    This model allows to predict the behaviour of bacteria during the process of Cream Cheese Fermentation.
+    """
 
-    def _system_equations(self, t, state, c1, c2, mu, q):
+    def _system_equations(self, t, state, c1, c2, mu, q) -> list[float]:
         X, p = state
         pH = -np.log10(np.maximum(p, 1e-14))
         sigma = 1.0 / (1.0 + np.exp(-c2 * (pH - c1)))
@@ -19,22 +19,25 @@ class CreamCheeseFermentationModel(mlflow.pyfunc.PythonModel):
         dp_dt = (10**q) * X * sigma
         return [dX_dt, dp_dt]
 
-    def predict(self, context, model_input, params=None):
+    def predict(self, context, model_input, params=None) -> pd.DataFrame:
         if isinstance(model_input, pd.DataFrame):
             data = model_input.to_dict(orient="records")[0]
         else:
             data = model_input
 
-        y0 = data["y0"]
-        t_start = data["t_start"]
-        t_end = data["t_end"]
-        t_steps = data.get("t_steps", 100)
-
         params = params or {}
-        c1 = params.get("c1", 6.5)
-        c2 = params.get("c2", 2.0)
-        mu = params.get("mu", 0.4)
-        q = params.get("q", -2.0)
+        x0 = params.get("x0", 10e6)
+        p0 = params.get("p0", 10e-6)
+        y0 = [x0, p0]
+        t_start = params.get("t_start", 0)
+        t_end = params.get("t_end", 12)
+        t_steps = params.get("t_steps", 1000)
+
+        data = data or {}
+        c1 = data.get("c1", 5)
+        c2 = data.get("c2", 12)
+        mu = data.get("mu", 1)
+        q = data.get("q", -1)
         t_eval = np.linspace(t_start, t_end, t_steps)
         sol = solve_ivp(
             fun=self._system_equations,
@@ -48,7 +51,6 @@ class CreamCheeseFermentationModel(mlflow.pyfunc.PythonModel):
         response.insert(0, "time", sol.t)
         response["pH"] = -np.log10(np.maximum(response["p"], 1e-14))
         response["sigma"] = 1.0 / (1.0 + np.exp(-c2 * (response["pH"] - c1)))
-
         return response
 
 
